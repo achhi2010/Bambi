@@ -99,3 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89e26c4f4048dc459a6608db89eba7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Steerspeed: 15
+  Xrange: 5
+  Yrange: 3
