@@ -9,6 +9,7 @@ public class Playercontrols : MonoBehaviour
     [SerializeField] float Steerspeed;
     [SerializeField] float Xrange;
     [SerializeField] float Yrange;
+    [SerializeField] ParticleSystem[] lasers;
     [SerializeField] float PositionPitch;
     [SerializeField] float ControlPitch;
     [SerializeField] float PositionYaw;
@@ -19,6 +20,7 @@ public class Playercontrols : MonoBehaviour
     {
         ProcessMovement();
         ProcessRotation();
+        ProcessFiring();
     }
 
     void ProcessRotation()
@@ -45,5 +47,24 @@ public class Playercontrols : MonoBehaviour
         float ClampedYpos = Mathf.Clamp(OldYpos, -Yrange, Yrange);
         transform.localPosition = new Vector3
         (ClampedXpos, ClampedYpos);
+    }
+    void ProcessFiring()
+    {
+        if(Input.GetButton("Fire1"))
+        {
+            SetLasersActivate(true); 
+        }
+        else
+        {
+            SetLasersActivate(false);
+        }
+}
+    void SetLasersActivate(bool IsActive)
+    {
+        foreach (ParticleSystem laser in lasers)
+        {
+            var emissionModule = laser.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = IsActive;
+        }
     }
 }
