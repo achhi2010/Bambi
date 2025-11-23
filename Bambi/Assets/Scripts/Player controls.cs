@@ -6,13 +6,22 @@ using UnityEngine.UIElements;
 
 public class Playercontrols : MonoBehaviour
 {
+    [Header("General Setup Settings")]
+    [Tooltip("How fast the spaceship will go")]
     [SerializeField] float Steerspeed;
+    [Header("Limiting movement settings")]
+    [Tooltip("To limit the movement of our ship on x axis")]
     [SerializeField] float Xrange;
+    [Tooltip("To limit the movement of our ship on y axis")]
     [SerializeField] float Yrange;
     [SerializeField] ParticleSystem[] lasers;
+    [Header("Pitch, Yaw and Roll settings")]
+    [Tooltip("Controls the amount of pitch which is on x axis")]
     [SerializeField] float PositionPitch;
     [SerializeField] float ControlPitch;
+    [Tooltip("Controls the amount of yaw which is on y axis")]
     [SerializeField] float PositionYaw;
+    [Tooltip("Controls the amount of roll which is on z axis")]
     [SerializeField] float PositionRoll;
     float horizontalSteer, verticalSteer;
 
